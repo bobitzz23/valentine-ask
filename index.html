@@ -28,7 +28,7 @@
         }
 
         img {
-            width: 200px;
+            width: 350px;
             height: auto;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -63,7 +63,6 @@
             background-color: #ffffff;
             color: #d81b60;
             font-weight: bold;
-            position: absolute; /* Allows moving freely */
         }
         
     </style>
@@ -89,6 +88,7 @@
 
         // Logic to make the "No" button run away
         noBtn.addEventListener('mouseover', () => {
+            noBtn.style.position = 'absolute';
             const i = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
             const j = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
             
