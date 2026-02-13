@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec; /* Light Pink Background */
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+            margin: 0;
+            overflow: hidden; /* Prevents scrollbars when button moves */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        #yesBtn {
+            background-color: #d81b60; /* Dark Pink */
+            color: white;
+            font-weight: bold;
+        }
+
+        #yesBtn:hover {
+            background-color: #ad1457;
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #ffffff;
+            color: #d81b60;
+            font-weight: bold;
+            position: absolute; /* Allows moving freely */
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img id="gif" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGZveHNmdzliZDR3b2tmdHY2ZXZlZTR4NnBqZWdjOGpxZ3NibnFvdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sXv0vaA4331Ti/giphy.gif">
+        
+        <h1 id="question">Shabi, will you be my Valentine?</h1>
+
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>s
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const question = document.getElementById('question');
+        const gif = document.getElementById('gif');
+
+        // Logic to make the "No" button run away
+        noBtn.addEventListener('mouseover', () => {
+            const i = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
+            const j = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
+            
+            noBtn.style.left = i + 'px';
+            noBtn.style.top = j + 'px';
+        });
+
+        // Logic for clicking "Yes"
+        yesBtn.addEventListener('click', () => {
+            // Change the text
+            question.innerHTML = "YAY! I love you! 💖";
+            
+            // Change the GIF to a happy one
+            gif.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTJiOXU2aGRtZ2s4MjJnd3Nkd2E1NW90cDNtcTFtdTNsZTg5eXM5MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fUQ4rhUZJYiQsas6WD/giphy.gif"; 
+
+            // Hide the buttons
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
